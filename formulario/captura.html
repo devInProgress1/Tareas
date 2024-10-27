@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Jugador</title>
+
+</head>
+<body>
+    <div class="captura">
+        <h1>Formulario de Jugador</h1>
+        <div class="box">
+            <form method="post" enctype="multipart/form-data">
+                <div class="input">
+                    <label for="name">Nombre:</label><br>
+                    <input type="text" name="name"><br><br>
+                </div>
+
+                <div class="input">
+                    <label for="alias">Alias:</label><br>
+                    <input type="text" name="alias"><br><br>
+                </div>
+
+                <div class="input">
+                    <label for="age">Edad:</label><br>
+                    <input type="number" name="age"><br><br>
+                </div>
+
+                <div class="press">
+                    <p>Armas a elegir (puedes elegir varias):</p><br>
+                    <input type="checkbox" name="weapons[]" value="Maza">
+                    <label for="maza">Maza</label><br>
+                    <input type="checkbox" name="weapons[]" value="Antorcha">
+                    <label for="antorcha">Antorcha</label><br>
+                    <input type="checkbox" name="weapons[]" value="Martillo">
+                    <label for="martillo">Martillo</label><br>
+                    <input type="checkbox" name="weapons[]" value="Latigo">
+                    <label for="latigo">Látigo</label><br><br>
+                </div>
+
+                <div class="press">
+                    <p>¿Practica artes mágicas?</p><br>
+                    <input type="radio" name="practice" value="yes">
+                    <label for="yes">Sí</label><br>
+                    <input type="radio" name="practice" value="no" checked>
+                    <label for="no">No</label><br><br>
+                </div>
+
+                <div class="image">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10000" />
+                    <label for="imageuplo">Subir imagen:</label><br>
+                    <input type="file" name="imageuplo" accept="image/png"><br><br>
+                </div>
+
+                <div>
+                <button type="submit">Enviar</button>
+                <button type="reset">Borrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/*estilo de captura.html*/
+.captura {
+    background-color: grey;
+    padding: 10% ;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+}
+.box{
+    width: 100%;
+    margin: 0;
+    padding-left: 5%;
+    padding-top: 5%;
+    padding-bottom: 8%;
+    border-radius: 20px;
+    text-align: left;
+    background-color: white;
+    align-items: center;
+    text-align: left;
+}
+.input input{
+    width: 95%;
+    padding: 2%;
+    margin-top: 1%;
+    border-radius: 10px;
+
+}
+.input label{
+    font-weight: bolder;
+
+}
+.press{
+
+    border-radius: 10px;
+    border: solid 0.5px rgb(146, 146, 146);
+    padding: 1%;
+    margin-right: 4%;
+    margin-bottom: 4%;
+}
+.press label{
+
+    font-weight: bolder;
+}
+.press p{
+
+margin: 0;
+}
+.image label{
+    font-weight: bolder;
+
+}
+.image input{
+    width: 95%;
+    padding: 2%;
+    margin-top: 1%;
+    border-radius: 10px;
+    border: solid 0.5px rgb(146, 146, 146);
+
+}
+
+button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    opacity: 0.8;
+}
+/*estilo de index.php*/
+
+.playertab{
+    padding: 2% 10%;
+    margin: 0 10%;
+    background-color: yellow;
+    text-align: center;
+}
+table{
+    align-items: center;
+    display:inline-table;
+}
+.table1{
+    text-align: left;
+    width: 300px;
+}
+.table1 td{
+    padding: 5px;
+}
+.table2{
+    text-align: left;
+    width: 250px;
+}
+img{
+    height: 200px;
+    width: 200px;
+}
