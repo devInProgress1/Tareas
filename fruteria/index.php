@@ -20,12 +20,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         //añade el valor a la fruta selecionada
         case 'Anotar':
             alterFruitsValue();
-            $compraRealizada=alterFruitsDisplay();
             break;
         //Muestra la tabla y cierra la sesión
         case 'Terminar':
             $compraRealizada=alterFruitsDisplay();
+            include_once 'app/despedida.php';
             session_destroy();
+            die();
             break;
         //Borra el valor de la fruta en la sesión
         case 'Anular':
@@ -33,7 +34,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             break;
     }
     $compraRealizada=alterFruitsDisplay();
-    $option=='Terminar' ? include_once 'app/despedida.php' : include_once 'app/compra.php';
+    include_once 'app/compra.php';
 
 }
 
@@ -58,12 +59,11 @@ function alterFruitsDisplay(){
     if(!$_SESSION['frutas']==[]){
         $displayString="Este es su pedido: <br><table style='border-style: solid;'>";
         foreach($_SESSION['frutas'] as $fruit => $value){
-            if(is_int($value)){
-                $displayString .= "<tr><td>".$fruit."</td><td>".$value."</td></tr>";
-            }
+            $displayString .= "<tr><td>".$fruit."</td><td>".$value."</td></tr>";
         }
         $displayString .= "</table>";
     } 
     return $displayString;
 }
+
 ?>
