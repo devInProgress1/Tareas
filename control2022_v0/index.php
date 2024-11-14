@@ -1,16 +1,10 @@
 <?php
 session_start();
 
+define("ATTEMPTS",5);
 //La primera vez que se inicializa la página se crea el campo oportunidades
 if(!isset($_SESSION['attempts'])){
-  $_SESSION['attempts']=4;
-}
-
-//En caso de no quedar mas oportunidades te muestra el mensaje de error
-if($_SESSION['attempts']==0){
-  $contenido = "<h1>Superado el número máximo de accesos erróneos</h1><hr><p>Reinicie el navegador para volver a intentarlo</p>";
-  include_once('app/errorSesion.php');
-  die();
+  $_SESSION['attempts']=ATTEMPTS;
 }
 
 include_once('app/funciones.php');
@@ -23,13 +17,16 @@ if (  !empty( $_GET['login']) && !empty($_GET['clave'])){
         $contenido = verNotasAlumno($_GET['login']);
       }
       //El contador se reinicia
-      $_SESSION['attempts']=4;
+      $_SESSION['attempts']=ATTEMPTS;
       include_once ('app/resultado.php');
     } 
     // userOK falso
     else {
-      //Si los datos son incorrectos se resta una oportunidad
-       $_SESSION['attempts']-=1;
+      //En caso de no quedar mas oportunidades te muestra el mensaje de error Si los datos son incorrectos se resta una oportunidad
+      $_SESSION['attempts']-=1;
+      if($_SESSION['attempts']==0){
+        showError($contenido);
+      }
        $contenido = "El número de usuario y la contraseña no son válidos";
        include_once('app/acceso.php');
     }
@@ -37,5 +34,4 @@ if (  !empty( $_GET['login']) && !empty($_GET['clave'])){
     $contenido = " Introduzca su número de usuario y su contraseña";
     include_once('app/acceso.php');
 }
-
 
