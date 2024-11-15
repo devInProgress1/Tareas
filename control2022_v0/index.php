@@ -9,6 +9,11 @@ if(!isset($_SESSION['attempts'])){
 
 include_once('app/funciones.php');
 
+ //En caso de no quedar mas oportunidades te muestra el mensaje de error
+if($_SESSION['attempts']==0){
+  showError();
+}
+
 if (  !empty( $_GET['login']) && !empty($_GET['clave'])){
     if ( userOk($_GET['login'],$_GET['clave'])){
       if ( getUserRol($_GET['login']) == ROL_PROFESOR){
@@ -25,7 +30,7 @@ if (  !empty( $_GET['login']) && !empty($_GET['clave'])){
       //En caso de no quedar mas oportunidades te muestra el mensaje de error Si los datos son incorrectos se resta una oportunidad
       $_SESSION['attempts']-=1;
       if($_SESSION['attempts']==0){
-        showError($contenido);
+        showError();
       }
        $contenido = "El número de usuario y la contraseña no son válidos";
        include_once('app/acceso.php');
