@@ -75,3 +75,11 @@ function verNotaTodas ($codigo): String {
     $msg .= "</table>";
     return $msg;
 }
+
+//Añade a contenido el mensaje de error y muestra el fichero errorSesion.php
+function showError(){
+    $contenido = "<h1>Superado el número máximo de accesos erróneos</h1><hr><p>Reinicie el navegador para volver a intentarlo</p>";
+    include_once('errorSesion.php');
+    die();
+}
+
